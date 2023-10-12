@@ -111,10 +111,10 @@ impl<T> EventLoopBuilder<T> {
     )]
     #[inline]
     pub fn build(&mut self) -> EventLoop<T> {
-        static EVENT_LOOP_CREATED: OnceCell<()> = OnceCell::new();
+        /*static EVENT_LOOP_CREATED: OnceCell<()> = OnceCell::new();
         if EVENT_LOOP_CREATED.set(()).is_err() {
             panic!("Creating EventLoop multiple times is not supported.");
-        }
+        }*/
         // Certain platforms accept a mutable reference in their API.
         #[allow(clippy::unnecessary_mut_passed)]
         EventLoop {

@@ -378,7 +378,6 @@ impl<T: 'static> EventLoop<T> {
     where
         F: FnMut(event::Event<T>, &RootELW<T>),
     {
-        dbg!("FOOBAR_EVENT", event);
         let mut input_status = InputStatus::Handled;
         match event {
             InputEvent::MotionEvent(motion_event) => {
@@ -430,7 +429,6 @@ impl<T: 'static> EventLoop<T> {
                 }
             }
             InputEvent::KeyEvent(key) => {
-                dbg!("FOOBAR", &key);
                 match key.key_code() {
                     // Flag keys related to volume as unhandled. While winit does not have a way for applications
                     // to configure what keys to flag as handled, this appears to be a good default until winit
